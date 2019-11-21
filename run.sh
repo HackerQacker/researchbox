@@ -31,7 +31,7 @@ while getopts htp: opt; do
         n) NAME=$OPTARG
             ;;
         *)
-            show_help
+            show_help >&2
             exit 1
             ;;
     esac
