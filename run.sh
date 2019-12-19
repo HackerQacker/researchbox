@@ -1,18 +1,18 @@
 #!/bin/bash
 
-CTFSPATH=${CTFSPATH:-$HOME/ctfs}
 IMAGE=researchbox
+RB_SHARED=${RB_SHARED:-$HOME/ctfs}
 TAG=latest
 NAME=ctf
 
 show_help() {
 cat << EOF
-Usage: ${0##*/} [-h] [-t TAG] [-p CTFSPATH] [-n NAME]
-Run researchbox container and mount a local CTFs data path.
+Usage: ${0##*/} [-h] [-t TAG] [-p RB_SHARED] [-n NAME]
+Run researchbox container and mount a local shared data path.
 
     -h            Display this help and exit
-    -t DOCKERTAG  Set docket tag (default: "${TAG}")
-    -p CTFSPATH   Local path to mount to (default: "${CTFSPATH}") (override default value by setting CTFSPATH env var)
+    -t DOCKERTAG  Set researchbox's docker tag (default: "${TAG}")
+    -p RB_SHARED  Local path to mount to (default: "${RB_SHARED}") (override default value by setting RB_SHARED env var)
     -n NAME       Set the container name (default: "${NAME}")
 EOF
 }
@@ -26,7 +26,7 @@ while getopts htp: opt; do
             ;;
         t) TAG=$OPTARG
             ;;
-        p) CTFSPATH=$OPTARG
+        p) RB_SHARED=$OPTARG
             ;;
         n) NAME=$OPTARG
             ;;
@@ -37,4 +37,4 @@ while getopts htp: opt; do
     esac
 done
 
-docker run --rm --privileged --net=host -it --name ${NAME} -v ${CTFSPATH}:/home/re/ctf ${IMAGE}:${TAG}
+docker run --rm --privileged --net=host -it --name ${NAME} -v ${RB_SHARED}:/home/re/shared ${IMAGE}:${TAG}
