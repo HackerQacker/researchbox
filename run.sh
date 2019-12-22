@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IMAGE=researchbox
 RB_SHARED=${RB_SHARED:-$HOME/ctfs}
+IMAGE=omerye/researchbox
 TAG=latest
 NAME=ctf
 
