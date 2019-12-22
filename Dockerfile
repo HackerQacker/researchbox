@@ -161,3 +161,4 @@ RUN git clone https://github.com/samoshkin/tmux-config.git \
 
 CMD ["/usr/bin/tmux"]
 #CMD ["/bin/bash", "-i"]
+
