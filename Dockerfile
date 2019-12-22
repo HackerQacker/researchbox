@@ -81,7 +81,8 @@ RUN dpkg --add-architecture i386 \
     libimage-exiftool-perl \
     qemu \
     qemu-user \
-    qemu-user-static
+    qemu-user-static \
+    man
 
 ## install golang latest
 RUN add-apt-repository ppa:longsleep/golang-backports \
