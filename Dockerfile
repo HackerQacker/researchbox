@@ -82,7 +82,8 @@ RUN dpkg --add-architecture i386 \
     qemu \
     qemu-user \
     qemu-user-static \
-    man
+    man \
+    upx
 
 ## install golang latest
 RUN add-apt-repository ppa:longsleep/golang-backports \
