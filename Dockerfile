@@ -121,11 +121,11 @@ RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
 
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
-    && echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit
+    && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit
 
 ## Install pwndbg
 RUN git clone https://github.com/zachriggle/pwndbg /home/re/tools/pwndbg \
-    && echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
+    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
     && pip3 install pycparser
 
 
