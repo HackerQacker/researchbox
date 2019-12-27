@@ -114,6 +114,8 @@ RUN python2 -m pip install --force-reinstall pip \
     && pip2 install --upgrade Pillow \
     && pip2 install --upgrade distorm3 \
     && pip2 install --upgrade pycrypto \
+    && pip2 install --upgrade psutil \
+    && pip2 install --upgrade pyelftools \
     && pip2 install --upgrade git+https://github.com/hellman/xortool.git
 
 ## Install Binjitsu
@@ -124,9 +126,10 @@ RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
     && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit
 
 ## Install pwndbg
-RUN git clone https://github.com/zachriggle/pwndbg /home/re/tools/pwndbg \
-    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
-    && pip3 install pycparser
+RUN git clone https://github.com/pwndbg/pwndbg.git /home/re/tools/pwndbg \
+    && cd /home/re/tools/pwndbg \
+    && ./setup.sh \
+    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit
 
 
 ## Install capstone
