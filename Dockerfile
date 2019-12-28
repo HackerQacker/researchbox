@@ -54,6 +54,7 @@ RUN dpkg --add-architecture i386 \
     gdbserver \
     foremost \
     ipython \
+    ipython3 \
     stow \
     virtualenvwrapper \
     ltrace \
