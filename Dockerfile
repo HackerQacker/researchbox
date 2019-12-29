@@ -154,6 +154,8 @@ RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadg
     && cd /home/re/tools/ROPgadget \
     && python setup.py install
 
+## Install rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 EXPOSE 22 1337 3002 3003 4000
 USER re
