@@ -84,7 +84,8 @@ RUN dpkg --add-architecture i386 \
     qemu-user \
     qemu-user-static \
     man \
-    upx
+    upx \
+    php
 
 ## install golang latest
 RUN add-apt-repository ppa:longsleep/golang-backports \
@@ -146,6 +147,7 @@ RUN git clone https://github.com/aquynh/capstone /home/re/tools/capstone \
 #RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
 #    && cd /home/re/tools/radare2 \
 #    && ./sys/install.sh
+RUN apt-get install -y radare2
 
 RUN pip2 install angr
 
