@@ -79,6 +79,8 @@ RUN dpkg --add-architecture i386 \
     libc6-dev-i386 \
     squashfs-tools \
     apktool \
+    android-tools-adb \ 
+    android-tools-fastboot \ 
     libimage-exiftool-perl \
     qemu \
     qemu-user \
@@ -120,18 +122,21 @@ RUN python2 -m pip install --force-reinstall pip \
     && pip2 install --upgrade pyelftools \
     && pip2 install --upgrade git+https://github.com/hellman/xortool.git
 
-## Install Binjitsu
+## Install Pwntools
 RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
+RUN python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
 
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
-    && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit
+    && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit \
+    && echo "alias peda='gdb -ex load_peda'" >> /home/re/.bash_aliases
 
 ## Install pwndbg
 RUN git clone https://github.com/pwndbg/pwndbg.git /home/re/tools/pwndbg \
     && cd /home/re/tools/pwndbg \
     && ./setup.sh \
-    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit
+    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
+    && echo "alias pwndbg='gdb -ex load_pwndbg'" >> /home/re/.bash_aliases
 
 
 ## Install capstone
