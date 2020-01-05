@@ -161,7 +161,7 @@ RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadg
     && cd /home/re/tools/ROPgadget \
     && python setup.py install
 
-EXPOSE 22 1337 3002 3003 4000
+EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
 
