@@ -41,4 +41,4 @@ while getopts ht:m:n:p opt; do
     esac
 done
 
-echo docker run --rm --privileged --net=host -it --name ${NAME} -v ${RB_SHARED}:/home/re/shared ${CONTAINER_OPTS} ${IMAGE}:${TAG}
+docker run --rm --privileged --net=host -it --name ${NAME} -v ${RB_SHARED}:/home/re/shared ${CONTAINER_OPTS} ${IMAGE}:${TAG}
