@@ -161,6 +161,14 @@ RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadg
     && cd /home/re/tools/ROPgadget \
     && python setup.py install
 
+## Install some tmux conf
+RUN wget -O /home/re/.tmux.conf https://gist.githubusercontent.com/OmerYe/eca0fe2aa6748cfc826b1a07b597a719/raw/4d30a1116dcbdac0ce31fb038f03afe42526c1db/.tmux.conf
+
+## Install Tmux Plugin Manager
+ENV TMUX_PLUGIN_MANAGER_PATH="/home/re/.tmux/plugins/tpm"
+RUN git clone https://github.com/tmux-plugins/tpm /home/re/.tmux/plugins/tpm
+RUN /home/re/.tmux/plugins/tpm/bin/install_plugins
+
 EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
@@ -174,12 +182,6 @@ RUN git clone https://github.com/danleh/wasabi /home/re/tools/wasabi \
     && cd /home/re/tools/wasabi \
     && cargo install --path .
 
-## Install some tmux conf
-RUN git clone https://github.com/samoshkin/tmux-config.git \
-    && ./tmux-config/install.sh
-
-## Add my ctf volume
-
-CMD ["/usr/bin/tmux"]
+CMD ["/usr/bin/tmux", "-2", "-u", "new", "-s", "researchbox"]
 #CMD ["/bin/bash", "-i"]
 
