@@ -109,8 +109,6 @@ RUN useradd -m -s /bin/bash re \
     && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf, \
     && sysctl -p
 
-## TODO: Add dotfiles
-
 ## Other python cool pip modules
 RUN python2 -m pip install --force-reinstall pip \
     #&& pip2 install --upgrade pip \
@@ -119,8 +117,8 @@ RUN python2 -m pip install --force-reinstall pip \
     && pip2 install --upgrade distorm3 \
     && pip2 install --upgrade pycrypto \
     && pip2 install --upgrade psutil \
-    && pip2 install --upgrade pyelftools \
-    && pip2 install --upgrade git+https://github.com/hellman/xortool.git
+    && pip2 install --upgrade pyelftools 
+    #&& pip2 install --upgrade git+https://github.com/hellman/xortool.git
 
 ## Install Pwntools
 RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
@@ -161,14 +159,6 @@ RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadg
     && cd /home/re/tools/ROPgadget \
     && python setup.py install
 
-## Install some tmux conf
-RUN wget -O /home/re/.tmux.conf https://gist.githubusercontent.com/OmerYe/eca0fe2aa6748cfc826b1a07b597a719/raw/4d30a1116dcbdac0ce31fb038f03afe42526c1db/.tmux.conf
-
-## Install Tmux Plugin Manager
-ENV TMUX_PLUGIN_MANAGER_PATH="/home/re/.tmux/plugins/tpm"
-RUN git clone https://github.com/tmux-plugins/tpm /home/re/.tmux/plugins/tpm
-RUN /home/re/.tmux/plugins/tpm/bin/install_plugins
-
 EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
@@ -178,10 +168,21 @@ RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/home/re/.cargo/bin:${PATH}"
 
 ## Install wasabi
-RUN git clone https://github.com/danleh/wasabi /home/re/tools/wasabi \
-    && cd /home/re/tools/wasabi \
-    && cargo install --path .
+#RUN git clone https://github.com/danleh/wasabi /home/re/tools/wasabi \
+#    && cd /home/re/tools/wasabi \
+#    && cargo install --path .
 
-CMD ["/usr/bin/tmux", "-2", "-u", "new", "-s", "researchbox"]
+## Install some tmux conf
+RUN wget -O /home/re/.tmux.conf https://gist.githubusercontent.com/OmerYe/eca0fe2aa6748cfc826b1a07b597a719/raw/.tmux.conf
+
+RUN echo ${HOME}
+
+## Install Tmux Plugin Manager
+# Not working at the moment.. But it is auto installed in tmux.conf anyway
+# TODO: fix this...
+#RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm \
+#   && ~/.tmux/plugins/tpm/bin/install_plugins
+
+CMD ["/usr/bin/tmux", "-2", "-u", "new", "-s", "rb"]
 #CMD ["/bin/bash", "-i"]
 
