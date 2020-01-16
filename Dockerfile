@@ -17,7 +17,6 @@ RUN dpkg --add-architecture i386 \
     python-pycryptopp \
     python-pyside \
     python-dev \
-    python-dev \
     python-pip \
     python-virtualenv \
     virtualenvwrapper \
@@ -172,17 +171,5 @@ ENV PATH="/home/re/.cargo/bin:${PATH}"
 #    && cd /home/re/tools/wasabi \
 #    && cargo install --path .
 
-## Install some tmux conf
-RUN wget -O /home/re/.tmux.conf https://gist.githubusercontent.com/OmerYe/eca0fe2aa6748cfc826b1a07b597a719/raw/.tmux.conf
-
-RUN echo ${HOME}
-
-## Install Tmux Plugin Manager
-# Not working at the moment.. But it is auto installed in tmux.conf anyway
-# TODO: fix this...
-#RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm \
-#   && ~/.tmux/plugins/tpm/bin/install_plugins
-
-CMD ["/usr/bin/tmux", "-2", "-u", "new", "-s", "rb"]
-#CMD ["/bin/bash", "-i"]
+CMD ["/bin/bash", "-i"]
 
