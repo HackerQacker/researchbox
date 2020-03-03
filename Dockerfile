@@ -38,7 +38,7 @@ RUN dpkg --add-architecture i386 \
     sudo \
     p7zip \
     autoconf \
-    libssl-dev \
+    #libssl-dev \
     libpcap-dev \
     libffi-dev \
     libqt4-dev \
@@ -86,7 +86,15 @@ RUN dpkg --add-architecture i386 \
     qemu-user-static \
     man \
     upx \
-    php
+    php \
+    libreadline-dev \
+    libconfig-dev \
+    libssl1.0-dev \
+    lua5.2 liblua5.2-dev \
+    libevent-dev \
+    libjansson-dev \
+    libpython-dev 
+
 
 ## install golang latest
 RUN add-apt-repository ppa:longsleep/golang-backports \
@@ -144,6 +152,12 @@ RUN git clone https://github.com/aquynh/capstone /home/re/tools/capstone \
     && cd /home/re/tools/capstone/bindings/python \
     && python3 setup.py install \
     && python2 setup.py install
+
+## Install tg-cli
+RUN git clone --recursive https://github.com/vysheng/tg.git /home/re/tools/tg \
+    && cd /home/re/tools/tg \
+    && ./configure \
+    && make
 
 ## Install radare2
 #RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
