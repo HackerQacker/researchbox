@@ -175,9 +175,8 @@ RUN apt-get install -y radare2
 RUN python3 -m pip install angr
 
 ## Install ROPGadget
-RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadget \
-    && cd /home/re/tools/ROPgadget \
-    && python setup.py install
+RUN python2 -m pip install ropgadget
+RUN python3 -m pip install ropgadget
 
 EXPOSE 22 1337 8080 3002 3003 4000
 USER re
