@@ -93,7 +93,8 @@ RUN dpkg --add-architecture i386 \
     lua5.2 liblua5.2-dev \
     libevent-dev \
     libjansson-dev \
-    libpython-dev 
+    libpython-dev \
+    unzip
 
 
 ## install golang latest
@@ -118,15 +119,21 @@ RUN useradd -m -s /bin/bash re \
 
 ## Other python cool pip modules
 RUN python2 -m pip install --force-reinstall pip \
-    #&& pip2 install --upgrade pip \
-    && pip2 install --upgrade r2pipe \
-    && pip2 install --upgrade Pillow \
-    && pip2 install --upgrade distorm3 \
-    && pip2 install --upgrade pycrypto \
-    && pip2 install --upgrade psutil \
-    && pip2 install --upgrade pyelftools 
-    #&& pip2 install --upgrade git+https://github.com/hellman/xortool.git
+    && python2 -m pip install --upgrade r2pipe \
+    && python2 -m pip install --upgrade Pillow \
+    && python2 -m pip install --upgrade distorm3 \
+    && python2 -m pip install --upgrade pycrypto \
+    && python2 -m pip install --upgrade psutil \
+    && python2 -m pip install --upgrade pyelftools 
 
+RUN python3 -m pip install --force-reinstall pip \
+    && python3 -m pip install --upgrade r2pipe \
+    && python3 -m pip install --upgrade Pillow \
+    && python3 -m pip install --upgrade distorm3 \
+    && python3 -m pip install --upgrade pycrypto \
+    && python3 -m pip install --upgrade psutil \
+    && python3 -m pip install --upgrade pyelftools 
+ 
 ## Install Pwntools
 RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
 RUN python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
@@ -165,7 +172,7 @@ RUN git clone --recursive https://github.com/vysheng/tg.git /home/re/tools/tg \
 #    && ./sys/install.sh
 RUN apt-get install -y radare2
 
-RUN pip2 install angr
+RUN python3 -m pip install angr
 
 ## Install ROPGadget
 RUN git clone https://github.com/JonathanSalwan/ROPgadget /home/re/tools/ROPgadget \
