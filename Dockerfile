@@ -94,6 +94,7 @@ RUN dpkg --add-architecture i386 \
     libevent-dev \
     libjansson-dev \
     libpython-dev \
+    lldb \
     unzip
 
 
