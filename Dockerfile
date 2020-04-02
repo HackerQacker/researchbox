@@ -99,7 +99,6 @@ RUN dpkg --add-architecture i386 \
     htop \
     wine-stable \
     steghide \
-    zsteg \
     xxd \
     unzip
 
