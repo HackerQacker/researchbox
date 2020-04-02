@@ -9,6 +9,7 @@ RUN dpkg --add-architecture i386 \
     && apt-get update \
     && apt-get -yq install \
     build-essential \
+    zsh \
     python2.7 \
     python2.7-dev \
     python-dbg \
