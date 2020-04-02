@@ -95,6 +95,11 @@ RUN dpkg --add-architecture i386 \
     libjansson-dev \
     libpython-dev \
     lldb \
+    htop \
+    wine-stable \
+    steghide \
+    zsteg \
+    xxd \
     unzip
 
 
@@ -136,7 +141,7 @@ RUN python3 -m pip install --force-reinstall pip \
     && python3 -m pip install --upgrade pyelftools 
  
 ## Install Pwntools
-RUN pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
+RUN python2 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
 RUN python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
 
 ## Install peda
