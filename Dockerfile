@@ -100,6 +100,7 @@ RUN dpkg --add-architecture i386 \
     wine-stable \
     steghide \
     xxd \
+	neovim \
     unzip
 
 
