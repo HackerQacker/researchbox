@@ -187,7 +187,7 @@ RUN python3 -m pip install ropgadget
 ## Install neovim
 RUN add-apt-repository ppa:neovim-ppa/stable \
 	&& apt-get update \
-	&& apt-get install neovim
+	&& apt-get install -y neovim
 
 EXPOSE 22 1337 8080 3002 3003 4000
 USER re
