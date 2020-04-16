@@ -189,6 +189,11 @@ RUN add-apt-repository ppa:neovim-ppa/stable \
 	&& apt-get update \
 	&& apt-get install -y neovim
 
+## Install node
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash \
+	&& apt-get update \
+	&& apt-get install -y nodejs
+
 EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
