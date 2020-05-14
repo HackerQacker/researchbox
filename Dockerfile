@@ -100,6 +100,11 @@ RUN dpkg --add-architecture i386 \
     wine-stable \
     steghide \
     xxd \
+	bison \
+	flex \
+	libtool \
+	libprotobuf-dev \
+	protobuf-compiler \
     unzip
 
 
@@ -185,7 +190,7 @@ RUN python2 -m pip install ropgadget
 RUN python3 -m pip install ropgadget
 
 ## Install neovim
-RUN add-apt-repository ppa:neovim-ppa/stable \
+RUN add-apt-repository ppa:neovim-ppa/unstable \
 	&& apt-get update \
 	&& apt-get install -y neovim
 
