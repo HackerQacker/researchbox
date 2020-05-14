@@ -105,6 +105,7 @@ RUN dpkg --add-architecture i386 \
 	libtool \
 	libprotobuf-dev \
 	protobuf-compiler \
+	yarn \
     unzip
 
 
