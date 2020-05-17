@@ -3,24 +3,24 @@ MAINTAINER OmerYe
 
 ## setup a user
 RUN useradd -m -s /bin/bash re \
-    && usermod -aG sudo re \
-    && /bin/echo -e "re\nre"|passwd re \
-    && chmod 4750 /home/re \
-    && mkdir -p /home/re/tools \
-    && chown -R re: /home/re \
-    && mkdir -p /etc/sudoers.d \
-    && echo "re ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/re \
-    && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf \
-    && sysctl -p
+	&& usermod -aG sudo re \
+	&& /bin/echo -e "re\nre"|passwd re \
+	&& chmod 4750 /home/re \
+	&& mkdir -p /home/re/tools \
+	&& chown -R re: /home/re \
+	&& mkdir -p /etc/sudoers.d \
+	&& echo "re ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/re \
+	&& echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf \
+	&& sysctl -p
 
 ## super root password
 RUN /bin/echo -e "toor\ntoor"|passwd root
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386 \
-    && apt-get update \
-    && apt-get install -yq software-properties-common \
-    && apt-get update \
+	&& apt-get update \
+	&& apt-get install -yq software-properties-common \
+	&& apt-get update \
 	&& add-apt-repository universe \
 	&& apt-get update \
 	&& apt-get install -yq build-essential \
@@ -88,7 +88,7 @@ RUN dpkg --add-architecture i386 \
 	squashfs-tools \
 	apktool \
 	android-tools-adb  \
-	android-tools-fastboot  \
+	android-tools-fastboot	\
 	libimage-exiftool-perl \
 	qemu \
 	qemu-user \
@@ -147,30 +147,30 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python3 \
  
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
-    && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit \
-    && echo "alias peda='gdb -ex load_peda'" >> /home/re/.aliases
+	&& /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit \
+	&& echo "alias peda='gdb -ex load_peda'" >> /home/re/.aliases
 
 ## Install pwndbg
 RUN git clone https://github.com/pwndbg/pwndbg.git /home/re/tools/pwndbg \
-    && cd /home/re/tools/pwndbg \
-    && ./setup.sh \
-    && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
-    && echo "alias pwndbg='gdb -ex load_pwndbg'" >> /home/re/.aliases
+	&& cd /home/re/tools/pwndbg \
+	&& ./setup.sh \
+	&& /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
+	&& echo "alias pwndbg='gdb -ex load_pwndbg'" >> /home/re/.aliases
 
 
 ## Install capstone
 RUN git clone https://github.com/aquynh/capstone /home/re/tools/capstone \
-    && cd /home/re/tools/capstone \
-    && ./make.sh \
-    && ./make.sh install \
-    && cd /home/re/tools/capstone/bindings/python \
-    && python3 setup.py install \
-    && python2 setup.py install
+	&& cd /home/re/tools/capstone \
+	&& ./make.sh \
+	&& ./make.sh install \
+	&& cd /home/re/tools/capstone/bindings/python \
+	&& python3 setup.py install \
+	&& python2 setup.py install
 
 ## Install radare2
 #RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
-#    && cd /home/re/tools/radare2 \
-#    && ./sys/install.sh
+#	 && cd /home/re/tools/radare2 \
+#	 && ./sys/install.sh
 RUN apt-get install -yq radare2
 
 ## Install ANGR
