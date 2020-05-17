@@ -2,6 +2,18 @@
 FROM ubuntu:latest
 MAINTAINER OmerYe
 
+## setup a user
+RUN useradd -m -s /bin/bash re \
+    && usermod -aG sudo re \
+    && /bin/echo -e "re\nre"|passwd re \
+    && chmod 4750 /home/re \
+    && mkdir -p /home/re/tools \
+    && chown -R re: /home/re \
+    && mkdir -p /etc/sudoers.d \
+    && echo "re ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/re \
+    && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf \
+    && sysctl -p
+
 ENV DEBIAN_FRONTEND noninteractive
 RUN dpkg --add-architecture i386 \
     && apt-get update \
@@ -115,18 +127,6 @@ RUN add-apt-repository ppa:longsleep/golang-backports \
 
 ## super root password
 RUN /bin/echo -e "toor\ntoor"|passwd root
-
-## setup a user
-RUN useradd -m -s /bin/bash re \
-    && usermod -aG sudo re \
-    && /bin/echo -e "re\nre"|passwd re \
-    && chmod 4750 /home/re \
-    && mkdir -p /home/re/tools \
-    && chown -R re: /home/re \
-    && mkdir -p /etc/sudoers.d \
-    && echo "re ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/re \
-    && echo "kernel.yama.ptrace_scope = 0" > /etc/sysctl.d/10-ptrace.conf, \
-    && sysctl -p
 
 ## Other python cool pip modules
 RUN python2 -m pip install --force-reinstall pip \
