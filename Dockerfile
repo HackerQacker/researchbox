@@ -153,14 +153,14 @@ RUN python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
     && /bin/echo -en "define load_peda\n  source /home/re/tools/peda/peda.py\nend\n" >> /home/re/.gdbinit \
-    && echo "alias peda='gdb -ex load_peda'" >> /home/re/.bash_aliases
+    && echo "alias peda='gdb -ex load_peda'" >> /home/re/.aliases
 
 ## Install pwndbg
 RUN git clone https://github.com/pwndbg/pwndbg.git /home/re/tools/pwndbg \
     && cd /home/re/tools/pwndbg \
     && ./setup.sh \
     && /bin/echo -en "\ndefine load_pwndbg\n  source /home/re/tools/pwndbg/gdbinit.py\nend\n" >> /home/re/.gdbinit \
-    && echo "alias pwndbg='gdb -ex load_pwndbg'" >> /home/re/.bash_aliases
+    && echo "alias pwndbg='gdb -ex load_pwndbg'" >> /home/re/.aliases
 
 
 ## Install capstone
