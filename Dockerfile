@@ -12,6 +12,9 @@ RUN apt-get install -yq build-essential
 RUN apt-get install -yq zsh
 RUN apt-get install -yq python2.7
 RUN apt-get install -yq python2.7-dev
+RUN apt-get install -yq python3
+RUN apt-get install -yq python3-pip
+RUN apt-get install -yq python3-dev
 RUN apt-get install -yq python-dbg
 RUN apt-get install -yq python-pil
 # RUN apt-get install -yq python-imaging
@@ -20,10 +23,9 @@ RUN apt-get install -yq python-pyside
 RUN apt-get install -yq python-dev
 RUN apt-get install -yq python-pip
 RUN apt-get install -yq python-virtualenv
+RUN apt-get install -yq ipython
+RUN apt-get install -yq ipython3
 RUN apt-get install -yq virtualenvwrapper
-RUN apt-get install -yq python3
-RUN apt-get install -yq python3-pip
-RUN apt-get install -yq python3-dev
 RUN apt-get install -yq libqt4-dev
 RUN apt-get install -yq libxml2-dev
 RUN apt-get install -yq libxslt1-dev
@@ -47,16 +49,14 @@ RUN apt-get install -yq graphviz-dev
 RUN apt-get install -yq cmake
 RUN apt-get install -yq clang
 RUN apt-get install -yq llvm
+RUN apt-get install -yq lldb
 RUN apt-get install -yq nasm
 RUN apt-get install -yq tmux
 RUN apt-get install -yq gdb
 RUN apt-get install -yq gdb-multiarch
 RUN apt-get install -yq gdbserver
 RUN apt-get install -yq foremost
-RUN apt-get install -yq ipython
-RUN apt-get install -yq ipython3
 RUN apt-get install -yq stow
-RUN apt-get install -yq virtualenvwrapper
 RUN apt-get install -yq ltrace
 RUN apt-get install -yq strace
 RUN apt-get install -yq socat
@@ -95,7 +95,6 @@ RUN apt-get install -yq lua5.2 liblua5.2-dev
 RUN apt-get install -yq libevent-dev
 RUN apt-get install -yq libjansson-dev
 RUN apt-get install -yq libpython-dev
-RUN apt-get install -yq lldb
 RUN apt-get install -yq htop
 RUN apt-get install -yq wine-stable
 RUN apt-get install -yq steghide
