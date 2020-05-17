@@ -23,13 +23,12 @@ RUN dpkg --add-architecture i386 \
 	&& apt-get update \
 	&& add-apt-repository universe \
 	&& apt-get update \
-	&& apt-get install -yq build-essential \
+	&& apt-get install -yq \
+	build-essential \
 	zsh \
 	python2.7 \
 	python2.7-dev \
 	python3 \
-#	python3-pip \
-#	python-pip \
 	python3-dev \
 	python-pil \
 	python-pycryptopp \
