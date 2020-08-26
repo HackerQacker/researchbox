@@ -195,6 +195,8 @@ EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
 
+ENV PATH="/home/re/.local/bin:${PATH}"
+
 ## Install rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/home/re/.cargo/bin:${PATH}"
