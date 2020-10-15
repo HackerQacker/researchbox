@@ -195,6 +195,7 @@ EXPOSE 22 1337 8080 3002 3003 4000
 USER re
 WORKDIR /home/re
 
+# Python install binary path
 ENV PATH="/home/re/.local/bin:${PATH}"
 
 ## Install rust
