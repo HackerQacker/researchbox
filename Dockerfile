@@ -112,6 +112,7 @@ RUN dpkg --add-architecture i386 \
 	protobuf-compiler \
 	yarn \
 	unzip \
+	ripgrep \
 	golang-go
 
 ## Other python cool pip modules (python2)
