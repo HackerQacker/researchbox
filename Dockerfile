@@ -24,117 +24,124 @@ RUN dpkg --add-architecture i386 \
 	&& add-apt-repository universe \
 	&& apt-get update \
 	&& apt-get install -yq \
-	build-essential \
-	zsh \
-	python2.7 \
-	python2.7-dev \
-	python3 \
-	python3-dev \
-	python-pil \
-	python-pycryptopp \
-	python-dev \
-	virtualenvwrapper \
-#	libqt4-dev \
-	libxml2-dev \
-	libxslt1-dev \
-	libgraphviz-dev \
-	libjpeg8 \
-	libjpeg62-dev \
-	libfreetype6 \
-	libfreetype6-dev \
-	apt-utils \
-	default-jre \
-	libboost-all-dev \
-	git \
-	sudo \
-	p7zip \
-	autoconf \
-	libssl-dev \
-	libpcap-dev \
-	libffi-dev \
-	graphviz-dev \
-	cmake \
-	clang \
-	llvm \
-	lldb \
-	nasm \
-	tmux \
-	gdb \
-	gdb-multiarch \
-	gdbserver \
-	foremost \
-	stow \
-	ltrace \
-	strace \
-	socat \
-	tcpdump \
-	john \
-	hydra \
-	vim \
-	curl \
-	wget \
-	nmap \
-	gcc-multilib \
-	g++-multilib \
-	netcat \
-	openssh-server \
-	openssh-client \
-	lsof \
-	# libc6:i386 \
-	libc6-dev-i386 \
-	libncurses5:i386 \
-	libstdc++6:i386 \
-	squashfs-tools \
-	apktool \
-	android-tools-adb  \
-	android-tools-fastboot	\
-	libimage-exiftool-perl \
-	qemu \
-	qemu-user \
-	qemu-user-static \
-	man \
-	upx \
-	php \
-	libreadline-dev \
-	libconfig-dev \
-	lua5.2 \
-	liblua5.2-dev \
-	libevent-dev \
-	libjansson-dev \
-	htop \
-	wine-stable \
-	steghide \
-	xxd \
-	bison \
-	flex \
-	libtool \
-	libprotobuf-dev \
-	protobuf-compiler \
-	yarn \
-	unzip \
-	ripgrep \
-	golang-go
+	build-essential
+
+RUN apt-get install -yq	zsh 
+RUN apt-get install -yq	python2 
+RUN apt-get install -yq	python2-dev 
+RUN apt-get install -yq	python3 
+RUN apt-get install -yq	python3-dev 
+RUN apt-get install -yq	python-pil 
+RUN apt-get install -yq	python-pycryptopp 
+RUN apt-get install -yq	python-dev 
+RUN apt-get install -yq	virtualenvwrapper 
+# RUN apt-get install -yq	libqt4-dev 
+RUN apt-get install -yq	libxml2-dev 
+RUN apt-get install -yq	libxslt1-dev 
+RUN apt-get install -yq	libgraphviz-dev 
+RUN apt-get install -yq	libjpeg8 
+RUN apt-get install -yq	libjpeg62-dev 
+RUN apt-get install -yq	libfreetype6 
+RUN apt-get install -yq	libfreetype6-dev 
+RUN apt-get install -yq	apt-utils 
+RUN apt-get install -yq	default-jre 
+RUN apt-get install -yq	libboost-all-dev 
+RUN apt-get install -yq	git 
+RUN apt-get install -yq	sudo 
+RUN apt-get install -yq	p7zip 
+RUN apt-get install -yq	autoconf 
+RUN apt-get install -yq	libssl-dev 
+RUN apt-get install -yq	libpcap-dev 
+RUN apt-get install -yq	libffi-dev 
+RUN apt-get install -yq	graphviz-dev 
+RUN apt-get install -yq	cmake 
+RUN apt-get install -yq	clang 
+RUN apt-get install -yq	llvm 
+RUN apt-get install -yq	lldb 
+RUN apt-get install -yq	nasm 
+RUN apt-get install -yq	tmux 
+RUN apt-get install -yq	gdb 
+RUN apt-get install -yq	gdb-multiarch 
+RUN apt-get install -yq	gdbserver 
+RUN apt-get install -yq	foremost 
+RUN apt-get install -yq	stow 
+RUN apt-get install -yq	ltrace 
+RUN apt-get install -yq	strace 
+RUN apt-get install -yq	socat 
+RUN apt-get install -yq	tcpdump 
+RUN apt-get install -yq	john 
+RUN apt-get install -yq	hydra 
+RUN apt-get install -yq	vim 
+RUN apt-get install -yq	curl 
+RUN apt-get install -yq	wget 
+RUN apt-get install -yq	nmap 
+RUN apt-get install -yq	gcc-multilib 
+RUN apt-get install -yq	g++-multilib 
+RUN apt-get install -yq	netcat 
+RUN apt-get install -yq	openssh-server 
+RUN apt-get install -yq	openssh-client 
+RUN apt-get install -yq	lsof 
+RUN apt-get install -yq libc6:i386 
+RUN apt-get install -yq	libc6-dev-i386 
+RUN apt-get install -yq libncurses5:i386 
+RUN apt-get install -yq libstdc++6:i386 
+RUN apt-get install -yq	squashfs-tools 
+RUN apt-get install -yq	apktool 
+RUN apt-get install -yq	android-tools-adb  
+RUN apt-get install -yq	android-tools-fastboot	
+RUN apt-get install -yq	libimage-exiftool-perl 
+RUN apt-get install -yq	qemu 
+RUN apt-get install -yq	qemu-user 
+RUN apt-get install -yq	qemu-user-static 
+RUN apt-get install -yq	man 
+RUN apt-get install -yq	upx 
+RUN apt-get install -yq	php 
+RUN apt-get install -yq	libreadline-dev 
+RUN apt-get install -yq	libconfig-dev 
+RUN apt-get install -yq	lua5.2 
+RUN apt-get install -yq	liblua5.2-dev 
+RUN apt-get install -yq	libevent-dev 
+RUN apt-get install -yq	libjansson-dev 
+RUN apt-get install -yq	htop 
+RUN apt-get install -yq	wine-stable 
+RUN apt-get install -yq	steghide 
+RUN apt-get install -yq	xxd 
+RUN apt-get install -yq	bison 
+RUN apt-get install -yq	flex 
+RUN apt-get install -yq	libtool 
+RUN apt-get install -yq	libprotobuf-dev 
+RUN apt-get install -yq	protobuf-compiler 
+RUN apt-get install -yq	yarn 
+RUN apt-get install -yq	unzip 
+RUN apt-get install -yq	ripgrep 
+
+## Install Go
+RUN add-apt-repository ppa:longsleep/golang-backports \
+	&& apt update \
+	&& apt-get install -yq	golang-go
 
 ## Other python cool pip modules (python2)
-RUN curl https://bootstrap.pypa.io/get-pip.py | python2 \
-	&& python2 -m pip install --force-reinstall pip \
-	&& python2 -m pip install --upgrade r2pipe \
-	&& python2 -m pip install --upgrade ipython \
-	&& python2 -m pip install --upgrade Pillow \
-	&& python2 -m pip install --upgrade distorm3 \
-	&& python2 -m pip install --upgrade pycrypto \
-	&& python2 -m pip install --upgrade psutil \
+# The commented lines are mostly modules that are no longer supported for Python 2
+RUN curl https://bootstrap.pypa.io/get-pip.py | python2 
+	# && python2 -m pip install --force-reinstall pip \
+	# && python2 -m pip install --upgrade r2pipe \
+	# && python2 -m pip install --upgrade IPython \
+	# && python2 -m pip install --upgrade Pillow \
+	# && python2 -m pip install --upgrade distorm3 \
+	# && python2 -m pip install --upgrade pycrypto \
+	# && python2 -m pip install --upgrade psutil \
 	# && python2 -m pip install --upgrade pydbg \
-	&& python2 -m pip install --upgrade virtualenv \
-	&& python2 -m pip install --upgrade pyelftools \
-	&& python2 -m pip install --upgrade ropgadget \
-	&& python2 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
+	# && python2 -m pip install --upgrade virtualenv \
+	# && python2 -m pip install --upgrade pyelftools \
+	# && python2 -m pip install --upgrade ropgadget \
+	# && python2 -m pip install --upgrade pwntools
+	# && python2 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git
 
 ## Other python cool pip modules (python3)
 RUN curl https://bootstrap.pypa.io/get-pip.py | python3 \
 	&& python3 -m pip install --force-reinstall pip \
 	&& python3 -m pip install --upgrade r2pipe \
-	&& python3 -m pip install --upgrade ipython \
+	&& python3 -m pip install --upgrade IPython \
 	&& python3 -m pip install --upgrade Pillow \
 	&& python3 -m pip install --upgrade distorm3 \
 	&& python3 -m pip install --upgrade pycrypto \
@@ -143,7 +150,8 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python3 \
 	&& python3 -m pip install --upgrade virtualenv \
 	&& python3 -m pip install --upgrade pyelftools \
 	&& python3 -m pip install --upgrade ropgadget \
-	&& python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
+	&& python3 -m pip install --upgrade pwntools
+	# && python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
  
 ## Install peda
 RUN git clone https://github.com/longld/peda.git /home/re/tools/peda \
