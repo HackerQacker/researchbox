@@ -114,6 +114,7 @@ RUN apt-get install -yq	protobuf-compiler
 RUN apt-get install -yq	yarn 
 RUN apt-get install -yq	unzip 
 RUN apt-get install -yq	ripgrep 
+RUN apt-get install -yq	ninja-build
 
 ## Install Go
 RUN add-apt-repository ppa:longsleep/golang-backports \
