@@ -80,10 +80,10 @@ RUN dpkg --add-architecture i386 \
 	openssh-server \
 	openssh-client \
 	lsof \
-	libc6:i386 \
+	# libc6:i386 \
+	libc6-dev-i386 \
 	libncurses5:i386 \
 	libstdc++6:i386 \
-	libc6-dev-i386 \
 	squashfs-tools \
 	apktool \
 	android-tools-adb  \
