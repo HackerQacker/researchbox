@@ -152,6 +152,7 @@ RUN curl https://bootstrap.pypa.io/get-pip.py | python3 \
 	&& python3 -m pip install --upgrade pyelftools \
 	&& python3 -m pip install --upgrade ropgadget \
 	&& python3 -m pip install --upgrade pynvim \
+	&& python3 -m pip install --upgrade compiledb \
 	&& python3 -m pip install --upgrade pwntools
 	# && python3 -m pip install --upgrade git+https://github.com/Gallopsled/pwntools.git@dev3
  
