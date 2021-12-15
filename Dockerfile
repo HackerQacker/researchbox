@@ -116,7 +116,7 @@ RUN apt-get install -yq	unzip
 RUN apt-get install -yq	ripgrep 
 RUN apt-get install -yq	ninja-build
 RUN apt-get install -yq	ctags
-RUN apt-get install -yq	fd
+RUN apt-get install -yq	fd-find
 
 ## Install Go
 RUN add-apt-repository ppa:longsleep/golang-backports \
