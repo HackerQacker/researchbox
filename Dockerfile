@@ -115,6 +115,7 @@ RUN apt-get install -yq	yarn
 RUN apt-get install -yq	unzip 
 RUN apt-get install -yq	ripgrep 
 RUN apt-get install -yq	ninja-build
+RUN apt-get install -yq	ctags
 
 ## Install Go
 RUN add-apt-repository ppa:longsleep/golang-backports \
