@@ -123,7 +123,7 @@ RUN add-apt-repository ppa:longsleep/golang-backports \
 
 ## Other python cool pip modules (python2)
 # The commented lines are mostly modules that are no longer supported for Python 2
-RUN curl https://bootstrap.pypa.io/get-pip.py | python2 
+# RUN curl https://bootstrap.pypa.io/get-pip.py | python2 
 	# && python2 -m pip install --force-reinstall pip \
 	# && python2 -m pip install --upgrade r2pipe \
 	# && python2 -m pip install --upgrade IPython \
@@ -170,13 +170,14 @@ RUN git clone https://github.com/pwndbg/pwndbg.git /home/re/tools/pwndbg \
 
 
 ## Install capstone
-RUN git clone https://github.com/aquynh/capstone /home/re/tools/capstone \
+# RUN git clone https://github.com/aquynh/capstone /home/re/tools/capstone \
+RUN git clone -b next https://github.com/capstone-engine/capstone /home/re/tools/capstone \
 	&& cd /home/re/tools/capstone \
 	&& ./make.sh \
 	&& ./make.sh install \
 	&& cd /home/re/tools/capstone/bindings/python \
-	&& python3 setup.py install \
-	&& python2 setup.py install
+	# && python2 setup.py install \
+	&& python3 setup.py install
 
 ## Install radare2
 #RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
