@@ -119,7 +119,7 @@ RUN apt-get install -yq	ctags
 
 ## Install fd
 RUN apt-get install -yq	fd-find \
-	&& ln -s $(which fdfind) /home/re/.local/bin/fd
+	&& ln -s $(which fdfind) /usr/local/bin
 
 ## Install Go
 RUN add-apt-repository ppa:longsleep/golang-backports \
