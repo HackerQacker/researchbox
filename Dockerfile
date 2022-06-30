@@ -31,9 +31,9 @@ RUN apt-get install -yq	python2
 RUN apt-get install -yq	python2-dev 
 RUN apt-get install -yq	python3 
 RUN apt-get install -yq	python3-dev 
-RUN apt-get install -yq	python-pil 
-RUN apt-get install -yq	python-pycryptopp 
-RUN apt-get install -yq	python-dev 
+# RUN apt-get install -yq	python-pil 
+# RUN apt-get install -yq	python-pycryptopp 
+# RUN apt-get install -yq	python-dev 
 RUN apt-get install -yq	virtualenvwrapper 
 # RUN apt-get install -yq	libqt4-dev 
 RUN apt-get install -yq	libxml2-dev 
@@ -115,7 +115,7 @@ RUN apt-get install -yq	yarn
 RUN apt-get install -yq	unzip 
 RUN apt-get install -yq	ripgrep 
 RUN apt-get install -yq	ninja-build
-RUN apt-get install -yq	ctags
+RUN apt-get install -yq	exuberant-ctags
 
 ## Install fd
 RUN apt-get install -yq	fd-find \
@@ -185,10 +185,10 @@ RUN git clone -b next https://github.com/capstone-engine/capstone /home/re/tools
 	&& python3 setup.py install
 
 ## Install radare2
-#RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
-#	 && cd /home/re/tools/radare2 \
-#	 && ./sys/install.sh
-RUN apt-get install -yq radare2
+RUN git clone https://github.com/radare/radare2 /home/re/tools/radare2 \
+	 && cd /home/re/tools/radare2 \
+	 && ./sys/install.sh
+# RUN apt-get install -yq radare2
 
 ## Install ANGR
 RUN python3 -m pip install angr
